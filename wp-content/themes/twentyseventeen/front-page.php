@@ -118,9 +118,15 @@ get_header();
 						<a href="<?php the_permalink(); ?>" style="text-decoration: none; color: #333;">
 							<?php the_title(); ?>
 						</a>
+						<div class="pontinhos">...</div>
 					</h3>
 
 					<!-- Categorias do post -->
+
+					<div class="loading">
+                        <img src="<?php echo $upload_dir['baseurl']; ?>/2025/01/loading.gif" alt="">
+					</div>
+
 					<?php
 					$categories = get_the_category();
 					if (!empty($categories)) {

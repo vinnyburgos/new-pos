@@ -206,12 +206,14 @@ function coresBox() {
             colorControl.parentNode.parentElement.children[0].classList.add("bgRed");
             colorControl.parentNode.parentElement.children[1].classList.add("colorRed");
             setTimeout(() => {
+                $(".loading").hide();
                 $(colorControl).parent().parent().find(".partir").addClass("colorRed");
                 $(colorControl).parent().parent().find(".carga").addClass("colorRed");
                 $(colorControl).parent().parent().find(".unidades").html("Polos Digitais:");
-                $(colorControl).parent().parent().find(".apenasPresencial").hide();
                 $(colorControl).parent().parent().find(".unidades").addClass("colorRed");
+                $(colorControl).parent().parent().find(".apenasPresencial").hide();
                 $(colorControl).parent().parent().find(".apenasEAD").show();
+                $(".valorCDesconto").show();
             }, 3000);
         } 
         if(colorControl.textContent == "PRESENCIAL") {
@@ -219,11 +221,13 @@ function coresBox() {
             colorControl.parentNode.parentElement.children[0].classList.add("bgGreen");
             colorControl.parentNode.parentElement.children[1].classList.add("colorGreen");
             setTimeout(() => {
+                $(".loading").hide();
                 $(colorControl).parent().parent().find(".partir").addClass("colorGreen");
                 $(colorControl).parent().parent().find(".carga").addClass("colorGreen");
                 $(colorControl).parent().parent().find(".unidades").addClass("colorGreen");
                 $(colorControl).parent().parent().find(".apenasEAD").hide();
                 $(colorControl).parent().parent().find(".apenasPresencial").show();
+                $(".valorCDesconto").show();
             }, 3000);
         } 
         if(colorControl.textContent == "WEBCONFERÊNCIA") {
@@ -231,11 +235,13 @@ function coresBox() {
             colorControl.parentNode.parentElement.children[0].classList.add("bgPurple");
             colorControl.parentNode.parentElement.children[1].classList.add("colorPurple");
             setTimeout(() => {
+                $(".loading").hide();
                 $(colorControl).parent().parent().find(".partir").addClass("colorPurple");
                 $(colorControl).parent().parent().find(".carga").addClass("colorPurple");
                 $(colorControl).parent().parent().find(".unidades").addClass("colorPurple");
                 $(colorControl).parent().parent().find(".apenasEAD").hide();
                 $(colorControl).parent().parent().find(".apenasPresencial").show();
+                $(".valorCDesconto").show();
             }, 3000);
         } 
     }
@@ -282,8 +288,21 @@ window.onload = function() {
         btnVerMais.addEventListener("click", function(){
             areaCursos.classList.add("active");
         });
+        coresBox();
     }
     
+
+    // document.querySelectorAll('.titleBox a').forEach(title => {
+    //     if (title.textContent.length > 45) {
+    //         $(title).parent().find(".pontinhos").show();
+    //     }
+    // });
+
     clearClean();
     verMais();
 }
+
+
+$(document).scroll(function(){
+    coresBox();
+});

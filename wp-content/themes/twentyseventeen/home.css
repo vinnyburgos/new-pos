@@ -444,6 +444,19 @@
     text-transform: uppercase;
     font-weight: 900;
     line-height: 23px;
+    overflow-y: hidden;
+    height: 70px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.pontinhos {
+    content: '...';
+    display: none;
+    font-size: 12px;
+    position: absolute;
+    right: 10%;
+    top: 22.5%;
 }
 .categoriaHide {
     display: none;
@@ -467,6 +480,20 @@
     font-size: 28px;
     font-weight: 700;
 }
+.valorCDesconto {
+    display: none;
+}
+.loading {
+    position: absolute;
+    right: 20%;
+    top: 130px;;
+}
+.loading img {
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
 .conteudoBox {
     margin: 0;
     font-size: 14px;
@@ -488,6 +515,7 @@
     font-size:13px;
 }
 .dozexCDesconto {
+    display: none;
     font-size: 28px;
     font-weight: 700;
 }
