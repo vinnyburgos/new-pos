@@ -523,4 +523,189 @@
     font-size: 14px;
 }
 /* area de boxes  */
+.innerProcurado {
+    width: 250px !important;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    height: 250px !important;
+    margin-right: 60px !important;
+    margin-top: 40px;
+    /* background-color: #fff; */
+}
+.innerProcurado:nth-child(1) {
+    margin-left: 100px !important;
+}
+.innerProcurado:before {
+    font-size: 180px;
+    font-weight: 900;
+    font-family: Ubuntu;
+    color: transparent;
+    -webkit-text-stroke: 2px #EF7D00;
+    background: transparent;
+    position: relative !important;
+    top: -113px !important;
+    left: -85px !important;
+    z-index: 999999999999999999 !important;
+}
+.innerProcurado:nth-child(1):before {
+    content: "1";
+}
+.innerProcurado:nth-child(2):before {
+    content: "2";
+}
+.innerProcurado:nth-child(3):before {
+    content: "3";
+}
+.innerProcurado:nth-child(4):before {
+    content: "4";
+}
+.innerProcurado:nth-child(5):before {
+    content: "5";
+}
+.innerProcurado:nth-child(6):before {
+    content: "6";
+}
+.innerProcurado:nth-child(7):before {
+    content: "7";
+}
+.innerProcurado:nth-child(8):before {
+    content: "8";
+}
+.innerProcurado:nth-child(9):before {
+    content: "9";
+}
+.innerProcurado:nth-child(10):before {
+    content: "10";
+}
+.innerProcurado:nth-child(11):before {
+    content: "11";
+}
+.innerProcurado:nth-child(12):before {
+    content: "12";
+}
+.course-thumbnail {
+    position: absolute !important;
+    top: 0px;
+}
+.course-thumbnail img {
+    height: 140px;
+}
+.wrapProcurado {
+    width: 95%;
+    margin: 0 auto;
+}
+.titleTop10 {
+    position: relative;
+    display: block;
+    width: 90%;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    margin-top: -112px;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.seloTypeTop10 {
+    position: absolute;
+    margin-top: 0;
+    top: 153px;
+    font-size: 10px;
+}
+.innerModTop10 {
+    position: absolute;
+    right: 82px;
+    top: 152px;
+    border-radius: 16px;
+    background: #FFF;
+    color: #555 !important;
+    font-size: 10px;
+    padding: 0 5px 0 5px;
+}
+.cargaHorariaTop {
+    position: relative;
+    top: -27px;
+    font-size: 10px;
+    left: -63px;
+}
+p.course-price {
+    margin-top: -37px;
+    text-align: left;
+    font-size: 12px;
+    margin-left: 2px;
+}
+.valorCDescontoTop {
+    font-size: 12px;
+    font-weight: 600;
+}
+.apenasEADTop {
+    display: none;
+}
+.apenasPresencialTop {
+    display: none;
+}
+.innerProcurado .categoria {
+    font-weight: 600;
+}
+.clickTop {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+.button-next {
+    position: absolute;
+    right: 20px;
+    top: 250px;
+    cursor: pointer;
+}
+.button-prev {
+    position: absolute;
+    left: 20px;
+    top: 250px;
+    cursor: pointer;
+}
+.swiper-css-mode>.swiper-wrapper {
+    padding-bottom: 75px;
+}
 
+.wrapPolos {
+    position: relative;
+    display: block;
+    background: #F1F2F6;
+    padding: 20px;
+    border-radius: 20px;
+    display: none;
+    transition: all .4s;
+    z-index: -1;
+}
+.innerPolo {
+    position: relative;
+    display: block;
+    height: auto;
+    width: 100%;
+}
+.colunaPolo {
+    position: relative;
+    display: inline-block;
+    width: 18%;
+    vertical-align: middle;
+    margin-right: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+.nomePolo {
+    width: 10%;
+}
+.enderecoPolo {
+    width: 20%;
+}
+.telefonePolo {
+    width: 20%;
+}
+.emailPolo {
+    width: 25%;
+}
+.horarioPolo {
+    width: 10%;
+}

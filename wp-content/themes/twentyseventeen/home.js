@@ -43,6 +43,50 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const tops = document.querySelectorAll('.innerProcurado');
+    tops.forEach(top => {
+        const mneumonicotop = top.getAttribute('data-mneumonico-top');
+        if (mneumonicotop) {
+            fetch(`http://127.0.0.1/novo-pos/wp-content/themes/twentyseventeen/getAPI.php?mneumonico=${mneumonicotop}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.investimentos) {
+                    const menorValor = Math.min(...data.investimentos.map(i => i.valor));
+                    const valorIntegral = (menorValor / 40) * 100;
+                    top.querySelector('.valorTop10').innerHTML = `
+                        <span class="valorCDescontoTop">${menorValor.toFixed(2).replace('.', ',')}</span>
+                    `;
+
+                    const categorias = document.querySelectorAll(".categoriaTop");
+                    for(let categoria of categorias) {
+                        if(categoria.innerHTML == "100% Digital") {
+                            $(categoria).parent().parent().parent().parent().find(".apenasEADTop").show();
+                            $(categoria).parent().parent().parent().parent().css("background"," #E5457A");
+                            $(categoria).css("color"," #E5457A");
+                        } else if(categoria.innerHTML == "WEBCONFERÊNCIA"){
+                            $(categoria).parent().parent().parent().parent().find(".apenasPresencialTop").show();
+                            $(categoria).parent().parent().parent().parent().css("background"," #7D378D");
+                            $(categoria).css("color"," #7D378D");
+                            $(categoria).parent().css("right"," 50px");
+                        } else {
+                            $(categoria).parent().parent().parent().parent().find(".apenasPresencialTop").show();
+                            $(categoria).parent().parent().parent().parent().css("background"," #076B8F");
+                            $(categoria).css("color"," #076B8F");
+                        }
+                    }
+                } 
+                else {
+                    top.remove();
+                }
+            })
+            .catch(error => {
+                top.remove();
+            });
+        }
+    });
+});
 // controle dos filtros da busca 
 document.addEventListener('DOMContentLoaded', function() {
     const boxes = document.querySelectorAll('.box-item');
@@ -309,6 +353,9 @@ window.onload = function() {
 
     clearClean();
     verMais();
+    // $(".wrapPolosD").click(function(){
+    //     $(".wrapPolos").slideToggle();
+    // });
 }
 
 function removeInfinityBoxes() {
@@ -320,8 +367,6 @@ function removeInfinityBoxes() {
         }
     });
 }
-
-
 
 $(document).scroll(function(){
     coresBox();

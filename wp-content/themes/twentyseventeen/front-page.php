@@ -142,7 +142,7 @@ get_header();
 						<p>Em breve...</p>
 					</div>
 					<div class="innerInscreva">
-						<div id="btnInscreva" class="btnInscreva btn">INSCREVA-SE JÁ!</div>
+					<a href="<?php the_permalink(); ?>"><div id="btnInscreva" class="btnInscreva btn">INSCREVA-SE JÁ!</div></a>
 					</div>
 				</div>
 			<?php endwhile; ?>
@@ -169,7 +169,7 @@ get_header();
 		<?php
 			$args = array(
 				'post_type' => 'cursos',
-				'posts_per_page' => 10,
+				'posts_per_page' => 12,
 				'orderby' => 'rand'
 			);
 			
@@ -177,14 +177,37 @@ get_header();
 			
 			if ($query->have_posts()) :
 				while ($query->have_posts()) : $query->the_post(); ?>
-					<div class="swiper-slide innerProcurado">
-						<h3><?php the_title(); ?></h3>
-						<p><?php the_excerpt(); ?></p>
-					<?php if (has_post_thumbnail()) : ?>
-						<div class="course-thumbnail">
-							<?php the_post_thumbnail('full'); ?>
-						</div>
-					<?php endif; ?>
+					<div class="swiper-slide innerProcurado" data-mneumonico-top="<?php echo get_post_meta(get_the_ID(), 'mneumonico', true); ?>" ><a class="clickTop" href="<?php the_permalink(); ?>">
+						<div class="wrapProcurado">
+						<p class="seloTypeTop10">PÓS-GRADUAÇÃO</p>
+							<div class="innerModTop10" id="">
+								<?php
+									$categories = get_the_category();
+									$valid_categories = array('100% Digital', 'ead', 'presencial', 'Presencial', 'webconferência', 'WEBCONFERÊNCIA', 'PRESENCIAL', 'EAD', '100% digital');
+
+									if (!empty($categories)) {
+										foreach ($categories as $category) {
+											if (in_array($category->name, $valid_categories)) {
+												echo '<span class="categoriaTop">' . esc_html($category->name) . '</span> ';
+											}
+										}
+									}
+								?>
+							</div>
+								<h3 class="titleTop10"><?php the_title(); ?></h3>
+								<p><?php the_excerpt(); ?></p>
+							<?php if (has_post_thumbnail()) : ?>
+								<div class="course-thumbnail">
+									<?php the_post_thumbnail('full'); ?>
+								</div>
+							<?php endif; ?>
+							<p class="cargaHorariaTop">Carga Horária: <?php echo get_post_meta(get_the_ID(), 'carga_horaria', true); ?> horas</p>
+							<p class="course-price">
+								<span class="apenasPresencialTop" style="font-weight:600;">A partir de: 18X de R$ </span>
+								<span class="apenasEADTop" style="font-weight:600;">12X de R$ </span>
+								<span class="valorTop10"></span>
+							</p>
+						</div></a>
 					</div>
 					<?php endwhile;
 				wp_reset_postdata();
@@ -193,11 +216,11 @@ get_header();
 				endif;
 		?>
 		</div>
-		<div class="swiper-button-next"></div>
-		<div class="swiper-button-prev"></div>
 		<div class="swiper-pagination"></div>
 	</div>
-	</div>
+</div>
+<div class="button-next buttonsSwiper"><?php echo $arrowRightTop10; ?></div>
+<div class="button-prev buttonsSwiper"><?php echo $arrowLeftTop10; ?></div>
 </section>
 
 <section class="sobrePos">
@@ -325,6 +348,19 @@ get_header();
 
 		<div class="wrapPolosD btn">
 			<div class="iconMapa"><?php echo $iconMap; ?></div><h4 class="titleUnidade">Polos Digitais</h4>
+			<div class="wrapPolos"><br><br><br><br>
+
+				<div class="innerPolo">
+					<div class="colunaPolo nomePolo">Barra da Tijuca</div>
+					<div class="colunaPolo enderecoPolo">Av. das Américas, 700, Bl 08, Loja 207-C, CEP 22640-100, Shopping Città.</div>
+					<div class="colunaPolo telefonePolo"> (21) 3030-5802<br>Celular (21) 98359-3339</div>
+					<div class="colunaPolo emailPolo">polo.barradatijuca@unisuam.edu.br</div>
+					<div class="colunaPolo horarioPolo"> Segunda a Sexta: 10h - 19h | Sábado: 9h - 13h</div>
+				</div>
+
+
+
+			</div>
 			<div class="static">v</div>
 		</div>
 
@@ -345,8 +381,8 @@ get_header();
 		spaceBetween: 30,
 		cssMode: true,
 		navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev",
+			nextEl: ".button-next",
+			prevEl: ".button-prev",
 		},
 		pagination: {
 			el: ".swiper-pagination",
@@ -362,8 +398,6 @@ get_header();
 		},
 	});
   </script>
-
-
 
 <?php
 get_footer();
