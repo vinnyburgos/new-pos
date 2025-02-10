@@ -88,6 +88,8 @@ get_header();
 	$args = array(
 		'post_type' => 'cursos', // Substitua pelo seu Custom Post Type
 		'posts_per_page' => 1000,  // Número de boxes a serem exibidos
+		'orderby' => 'title',
+		'order' => 'ASC'
 	);
 
 	$query = new WP_Query($args);
@@ -124,7 +126,7 @@ get_header();
 					<!-- Categorias do post -->
 
 					<div class="loading">
-                        <img src="<?php echo $upload_dir['baseurl']; ?>/2025/01/loading.gif" alt="">
+						<img src="<?php echo $upload_dir['baseurl']; ?>/2025/01/loading.gif" alt="">
 					</div>
 
 					<?php

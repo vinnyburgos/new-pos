@@ -360,13 +360,13 @@
     overflow-y: hidden;
     transition: all .4s;
 }
-.box-container.active {
+/* .box-container.active {
     width: 100% !important;
     text-align: center;
     max-height: 100%;
     overflow-y: none;
     transition: all .4s;
-}
+} */
 .boxColor {
     width: 100%;
     top: 0;
@@ -518,6 +518,9 @@
     display: none;
     font-size: 28px;
     font-weight: 700;
+}
+.apiGets {
+    font-size: 14px;
 }
 /* area de boxes  */
 

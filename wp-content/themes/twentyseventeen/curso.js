@@ -14,11 +14,21 @@
             "background-blend-mode": "overlay" /* Combina gradiente e imagem */
         });
 
-        const modalidadeGet = document.querySelector("#modalidade").innerHTML;
+        const modalidadeGet = document.querySelector("#modalidadeBox").innerHTML;
         if(modalidadeGet == "Online") {
+            document.querySelector("#modalidadeBox").innerHTML = "100% Digital";
             document.querySelector("#innerMod").innerHTML = "100% Digital";
         } else {
-            document.querySelector("#innerMod").innerHTML = modalidadeGet;
+            const articles = document.querySelectorAll("article");
+            for(article of articles) {
+                articleWeb = $(article).attr("class");
+                if(articleWeb.match("category-webconferencia")) {
+                    document.querySelector("#modalidadeBox").innerHTML = "Webconferência";
+                    document.querySelector("#innerMod").innerHTML = "Webconferência";
+                } else {
+                    document.querySelector("#innerMod").innerHTML = modalidadeGet;
+                }
+            }
         }
     });
 

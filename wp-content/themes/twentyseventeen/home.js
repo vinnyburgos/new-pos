@@ -27,15 +27,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h6 class="carga">Carga horária:</h6>
                         <p class="conteudoBox"><span class="cargaHoraria">${data.resumo['carga-horaria']}</span><span> horas</span></p>
                         <h6 class="unidades">Unidades:</h6>
-                        ${[...new Set(data.investimentos.map(i => i.unidade))].map(unidade => `<p class="conteudoBox"><span class="unidade">${unidade}</span></p>`).join('')}
+                        ${[...new Set(data.investimentos.map(i => i.unidade))].join(' | ')}
                     `;
                 } else {
-                    box.querySelector('.apiGets').innerHTML = '<p>Em breve.</p>';
+                    box.remove();
+                    // box.querySelector('.apiGets').innerHTML = '<p>Em breve.</p>';
                 }
             })
             .catch(error => {
-                console.error('Erro:', error);
-                box.querySelector('.apiGets').innerHTML = '<p>Erro ao carregar dados.</p>';
+                box.remove();
+                // console.error('Erro:', error);
+                // box.querySelector('.apiGets').innerHTML = '<p>Erro ao carregar dados.</p>';
             });
         }
     });
@@ -284,15 +286,22 @@ window.onload = function() {
     function verMais() {
         const btnVerMais = document.querySelector(".btnVerMaisCursos");
         const areaCursos = document.querySelector(".box-container");
+        let currentHeight = 800;
 
-        btnVerMais.addEventListener("click", function(){
-            areaCursos.classList.add("active");
+        btnVerMais.addEventListener("click", function() {
+            currentHeight += 800;
+            areaCursos.style.maxHeight = `${currentHeight}px`;
+
+            if (areaCursos.scrollHeight <= currentHeight) {
+                btnVerMais.style.display = 'none';
+            }
         });
+
         coresBox();
     }
     
 
-    // document.querySelectorAll('.titleBox a').forEach(title => {
+    // document.800uerySelectorAll('.titleBox a').forEach(title => {
     //     if (title.textContent.length > 45) {
     //         $(title).parent().find(".pontinhos").show();
     //     }
@@ -302,7 +311,19 @@ window.onload = function() {
     verMais();
 }
 
+function removeInfinityBoxes() {
+    const boxes = document.querySelectorAll('.box-item');
+    boxes.forEach(box => {
+        const valorCDesconto = box.querySelector('.valorCDesconto');
+        if (valorCDesconto && valorCDesconto.textContent.includes('Infinity')) {
+            box.remove();
+        }
+    });
+}
+
+
 
 $(document).scroll(function(){
     coresBox();
+    removeInfinityBoxes();
 });

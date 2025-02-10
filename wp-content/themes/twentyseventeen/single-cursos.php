@@ -142,7 +142,7 @@ get_header(); ?>
 				<div class="wrapSides">
 					<div class="left">
 						<h3>Modalidade:</h3>
-						<p class="conteudoBox"><span id="">Presencial</span></p>
+						<p class="conteudoBox"><span id="modalidadeBox">Presencial</span></p>
 						<h3>Dias e horários:</h3>
 						<p class="conteudoBox"><span id="">Sábados quinzenais<br>das 8h às 17h</span></p>
 					</div>
@@ -193,9 +193,9 @@ get_header(); ?>
 				<div class="wrapSides">
 					<div class="left">
 						<h3>Modalidade:</h3>
-						<p class="conteudoBox"><span id="modalidade">Online</span></p>
+						<p class="conteudoBox"><span id="modalidadeBox">Online</span></p>
 						<h3>Dias e horários:</h3>
-						<p class="conteudoBox"><span id="modalidade">Flexível</span></p>
+						<p class="conteudoBox"><span id="dias">Flexível</span></p>
 					</div>
 					<div class="right">
 						<h3>Carga horária:</h3>
