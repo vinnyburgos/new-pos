@@ -709,3 +709,10 @@ p.course-price {
 .horarioPolo {
     width: 10%;
 }
+.filtrarCursos {
+    display: flex !important;
+    transition: all .4s;
+}
+.selectUnidade {
+    display: none;
+}

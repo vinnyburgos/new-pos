@@ -154,6 +154,14 @@ document.addEventListener('DOMContentLoaded', function() {
         clearClean();
     });
 
+    modalidadeSelect.addEventListener('change', () => {
+       if(modalidadeSelect.value == "PRESENCIAL") {
+            $(".selectUnidade").fadeIn();
+       } else {
+            $(".selectUnidade").fadeOut();
+        };
+    });
+
     const limparFiltrosBtn = document.getElementById('limparFiltros');
 
     const categorias = new Set();
@@ -343,7 +351,6 @@ window.onload = function() {
 
         coresBox();
     }
-    
 
     // document.800uerySelectorAll('.titleBox a').forEach(title => {
     //     if (title.textContent.length > 45) {
@@ -371,4 +378,29 @@ function removeInfinityBoxes() {
 $(document).scroll(function(){
     coresBox();
     removeInfinityBoxes();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        const boxes = document.querySelectorAll('.box-item');
+        const unidadeSelect = document.getElementById('unidade');
+
+        const unidades = new Set();
+
+        boxes.forEach(box => {
+            const modalidade = box.querySelector('.innerMod').textContent.trim();
+            if (modalidade === 'PRESENCIAL') {
+                const unidade = box.querySelector('.unidades').textContent.trim();
+                unidades.add(unidade);
+                console.log(unidade);
+            }
+        });
+        
+        Array.from(unidades).sort().forEach(unidade => {
+            const option = document.createElement('option');
+            option.value = unidade;
+            option.textContent = unidade;
+            unidadeSelect.appendChild(option);
+        });
+    }, 4000);
 });

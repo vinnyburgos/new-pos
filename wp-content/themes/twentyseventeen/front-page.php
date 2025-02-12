@@ -51,7 +51,7 @@ get_header();
 				<p class="limparFiltros btn" id="limparFiltros">LIMPAR FILTROS <?php echo $iconBorracha; ?></p>
 			</div>
 			<div class="lineTwo">
-				<form action="#" id="filtrarCursos">
+				<form action="#" id="filtrarCursos" class="filtrarCursos">
 
 					<div class="innerSelect">
 						<label for="areaInteresse" class="interesse">Área de Interesse</label>
@@ -70,6 +70,13 @@ get_header();
 					<div class="innerSelect">
 						<label for="modalidade" class="modalidade">Modalidade de Ensino</label>
 						<select name="modalidade" id="modalidade">
+							<option value="">Todas</option>
+						</select>
+					</div>
+
+					<div class="innerSelect selectUnidade">
+						<label for="unidade" class="unidade">Unidade</label>
+						<select name="unidade" id="unidade">
 							<option value="">Todas</option>
 						</select>
 					</div>
@@ -357,8 +364,6 @@ get_header();
 					<div class="colunaPolo emailPolo">polo.barradatijuca@unisuam.edu.br</div>
 					<div class="colunaPolo horarioPolo"> Segunda a Sexta: 10h - 19h | Sábado: 9h - 13h</div>
 				</div>
-
-
 
 			</div>
 			<div class="static">v</div>
